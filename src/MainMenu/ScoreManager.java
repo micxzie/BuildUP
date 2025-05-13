@@ -18,7 +18,7 @@ public class ScoreManager {
         try(BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))){
             String line;
             while((line = reader.readLine()) != null){
-                String[] parts = line.split(",");
+                String[] parts = line.split(","); //Splits each line by commas into parts (expected to be name, date, score)
                 if (parts.length == 3){
                     scores.add(new ScoreEntry(parts[0], parts[1], Integer.parseInt(parts[2])));
                 }
@@ -29,9 +29,10 @@ public class ScoreManager {
         return scores;
     }
 
+    //load scores and sort them by score in descending order
     public static List<ScoreEntry> loadAndSortScores() {
         List<ScoreEntry> scores = loadScores();
-        scores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));
+        scores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore())); //Sorts the list using a lambda comparator
         return scores;
     }
 
