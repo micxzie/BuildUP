@@ -29,7 +29,7 @@ public class ScoreManager {
         return scores;
     }
 
-    //load scores and sort them by score in descending order
+    //Sorts the list using a lambda comparator
     public static List<ScoreEntry> loadAndSortScores() {
         List<ScoreEntry> scores = loadScores();
         scores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore())); //Sorts the list using a lambda comparator
